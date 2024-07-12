@@ -1,0 +1,163 @@
+$transition: all 0.3s ease;
+
+// 给中间选中行添加border-radius
+::v-deep .view-column.second .select-line {
+	border-radius: 0 16rpx 16rpx 0;
+}
+
+::v-deep .view-column.first .select-line {
+	border-radius: 16rpx 0 0 16rpx;
+}
+
+// 修改原有的上下边框颜色
+::v-deep .select-line::after {
+	border-bottom: 2rpx solid #fff1ec;
+}
+
+::v-deep .select-line::before {
+	border-top: 2rpx solid #fff1ec;
+}
+
+.birthday-picker {
+	position: relative;
+	z-index: 999;
+
+	picker-view {
+		height: 100%;
+	}
+
+	.mask {
+		position: fixed;
+		z-index: 1000;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		visibility: hidden;
+		opacity: 0;
+		transition: $transition;
+
+		&.show {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	.wrap {
+		z-index: 1001;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		transition: $transition;
+		transform: translateY(100%);
+
+		&.show {
+			transform: translateY(0);
+		}
+	}
+
+	.picker-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0px 10px;
+		background-color: #f0f0f0;
+		height: 54px;
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
+
+		.change {
+			width: 100px;
+			height: 34px;
+			line-height: 34px;
+			border-radius: 10px;
+			// border: 1px solid #FA5132;
+			display: flex;
+			flex-direction: row;
+			overflow: hidden;
+
+			view {
+				flex: 1;
+				font-size: 17px;
+				font-weight: 400;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+
+			.active {
+				// background: #FA5132;
+				color: white;
+			}
+		}
+
+		.submit {
+			width: 100px;
+			flex-direction: row;
+			justify-content: flex-end;
+			text-align: right;
+
+			view {
+				flex: 1;
+			}
+
+			text {
+				font-size: 18px;
+				font-weight: 500;
+				// color: #FA5132;
+			}
+		}
+
+		text {
+			margin: 0px 5px;
+			display: inline-block;
+			flex: 1;
+			font-size: 16px;
+			font-weight: 400;
+			color: #666;
+			text-align: center;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	.picker-body {
+		width: 100%;
+		height: 250px;
+		overflow: hidden;
+		background-color: #fff;
+		padding: 0 12px;
+	}
+
+	.picker-view-column {
+		view {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	.select-line {
+		background: rgba(230, 230, 230, 0.3);
+		height: 40px;
+		line-height: 40px;
+		// border-radius: 10px;
+	}
+
+	.select-item {
+		font-size: 39rpx;
+		font-weight: 600;
+		color: #222;
+	}
+
+	.column-item {
+		font-size: 39rpx;
+		font-weight: 400;
+		color: #222;
+	}
+}
