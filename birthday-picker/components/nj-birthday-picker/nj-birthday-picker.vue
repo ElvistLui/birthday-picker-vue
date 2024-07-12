@@ -104,12 +104,12 @@
 		// 选择器标题
 		title: {
 			type: String,
-			default: "出生时间",
+			default: "生日选择器",
 		},
 		// 主题色
 		themeColor: {
 			type: String,
-			default: "#FA5132",
+			default: "#ff0000",
 		},
 		// 起始时间（公历，不早于1901年）
 		startDate: {
